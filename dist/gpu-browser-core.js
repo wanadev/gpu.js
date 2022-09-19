@@ -5,7 +5,7 @@
  * GPU Accelerated JavaScript
  *
  * @version 2.15.2
- * @date Mon Mar 28 2022 10:51:06 GMT-0400 (Eastern Daylight Time)
+ * @date Mon Sep 19 2022 17:38:48 GMT+0200 (heure d’été d’Europe centrale)
  *
  * @license MIT
  * The MIT License
@@ -10077,7 +10077,8 @@ class WebGLKernel extends GLKernel {
       testCanvas = new OffscreenCanvas(0, 0);
     }
     if (!testCanvas) return;
-    testContext = testCanvas.getContext('webgl') || testCanvas.getContext('experimental-webgl');
+    testContext = testCanvas.getContext('webgl');
+    if (!testContext && !(testCanvas instanceof OffscreenCanvas)) testContext = testCanvas.getContext('experimental-webgl');
     if (!testContext || !testContext.getExtension) return;
     testExtensions = {
       OES_texture_float: testContext.getExtension('OES_texture_float'),
@@ -14277,7 +14278,7 @@ const utils = {
       case Input:
         return 'Input';
     }
-    if ('nodeName'  in value) {
+    if ('nodeName' in value) {
       switch (value.nodeName) {
         case 'IMG':
           return 'HTMLImage';
@@ -15063,6 +15064,5 @@ const _systemEndianness = utils.getSystemEndianness();
 module.exports = {
   utils
 };
-
 },{"./input":109,"./texture":112,"acorn":1}]},{},[106])(106)
 });
