@@ -8,8 +8,6 @@ const { FunctionNode } = require('./backend/function-node');
 const { CPUFunctionNode } = require('./backend/cpu/function-node');
 const { CPUKernel } = require('./backend/cpu/kernel');
 
-const { HeadlessGLKernel } = require('./backend/headless-gl/kernel');
-
 const { WebGLFunctionNode } = require('./backend/web-gl/function-node');
 const { WebGLKernel } = require('./backend/web-gl/kernel');
 const { kernelValueMaps: webGLKernelValueMaps } = require('./backend/web-gl/kernel-value-maps');
@@ -33,7 +31,6 @@ module.exports = {
   GPU,
   FunctionBuilder,
   FunctionNode,
-  HeadlessGLKernel,
   Input,
   input,
   Texture,
